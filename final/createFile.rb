@@ -126,7 +126,8 @@ def parseJsonFile(file_name,folder_path)
   folder_name = folder_path + "/output" + file_data.keys[0]
   FileUtils::mkdir_p folder_name
   if !file_data.empty?
-    include_file = File.new(folder_name+"/include.h","w+")  
+    include_file = File.new(folder_name+"/include.h","w+")
+    createFile(file_data,folder_name,include_file)  
   else
     puts "empty"
   end  
@@ -149,4 +150,5 @@ def traverseDirectory(folder_path)
   end
 end
 
-traverseDirectory ('/home/synerzip/RUBY/final')
+currentDir = Dir.pwd
+traverseDirectory (currentDir)
